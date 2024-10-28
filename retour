@@ -1,0 +1,14 @@
+chapitre Differenciez les informations de liste et de detail :
+- le lien vers P2C2_solution renvoie vers P2C1_solution
+
+de plus, les test ne marchent pas car l'output avec la pagination que nous avons set dans le chapitre precedent ne rend pas le meme output que ce qu'attendent les tests
+
+chapitre P2C3 : 
+il manque
+
+def get_queryset(self):
+       return Category.objects.filter(active=True)
+
+dans class CategoryViewset(MultipleSerializerMixin, ReadOnlyModelViewSet): du fichier views.py
+
+ce n'est pas indique qu'il faut importer des models
