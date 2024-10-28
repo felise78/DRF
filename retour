@@ -1,9 +1,11 @@
-chapitre Differenciez les informations de liste et de detail :
+deja dans l'ensemble ce serait bien qu'il y ait le nom du fichier a chaque fois qu'il y a une section de code car on s'y perd entre les views.py serializers.py
+
+// chapitre Differenciez les informations de liste et de detail :
 - le lien vers P2C2_solution renvoie vers P2C1_solution
 
 de plus, les test ne marchent pas car l'output avec la pagination que nous avons set dans le chapitre precedent ne rend pas le meme output que ce qu'attendent les tests
 
-chapitre P2C3 : 
+// chapitre P2C3 : 
 il manque
 
 def get_queryset(self):
@@ -12,3 +14,25 @@ def get_queryset(self):
 dans class CategoryViewset(MultipleSerializerMixin, ReadOnlyModelViewSet): du fichier views.py
 
 ce n'est pas indique qu'il faut importer des models
+
+// Page valider les donnees
+
+il n'est pas indique qu'il faille import AdminCategoryViewset dans le fichier urls.py
+
+l'url est http://127.0.0.1:8000/api/admin/category/ et non http://127.0.0.1/api/admin/category/
+le port a ete ommis dans le cours
+
+Appeler une API externe
+-> ce n'etait pas dans la class Category qu'il fallait mettre le bout de code mais dans la classe Product
+
+il n'est ecrit nulle part qu'il faut : import requests
+
+MOCK ##
+tests.py
+from shop.mocks import mock_openfoodfact_success, ECOSCORE_GRADE
+que un seul s a success
+
+ def get_product_detail_data(self, product): 
+non c'est en fait le def get_product_list_data (dans la video)
+
+one ne nous dit pas le test a update .....
