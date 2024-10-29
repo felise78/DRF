@@ -2,13 +2,13 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
 from rest_framework.response import Response
 from rest_framework.decorators import action
+from shop.permissions import IsAdminAuthenticated, IsStaffAuthenticated
 
 from shop.models import Category, Product, Article
 from shop.serializers import CategoryDetailSerializer, CategoryListSerializer,\
     ProductDetailSerializer, ProductListSerializer, ArticleSerializer
 
 # le mixin : 
-
 class MultipleSerializerMixin:
     # Un mixin est une classe qui ne fonctionne pas de façon autonome
     # Elle permet d'ajouter des fonctionnalités aux classes qui les étendent
@@ -28,6 +28,9 @@ class AdminCategoryViewset(MultipleSerializerMixin, ModelViewSet):
     serializer_class = CategoryListSerializer
     detail_serializer_class = CategoryDetailSerializer
  
+    # restreint l'access au viewset aux admins et staff
+    permission_classes = [IsAdminAuthenticated, IsStaffAuthenticated]
+
     def get_queryset(self):
         return Category.objects.all()
 
